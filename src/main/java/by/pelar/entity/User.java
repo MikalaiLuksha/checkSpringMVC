@@ -4,8 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 @Data
 @AllArgsConstructor
@@ -13,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 public class User {
 
 
+    @Id
     private long id;
 
     @NotBlank
@@ -24,8 +28,8 @@ public class User {
     @NotBlank
     private String password;
 
-    public User(@NotBlank String login, @NotBlank String password) {
-        this.login = login;
-        this.password = password;
-    }
+    private Role role;
+
+    private Calendar addDate;
+
 }
